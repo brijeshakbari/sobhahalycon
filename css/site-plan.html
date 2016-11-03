@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mantri Lithos Apartments, Hebbal - Bangalore</title>
+
+<meta name="description" content="Mantri Lithos, coming up inside MANYATA TECHPARK." />
+
+<meta name="keywords" content="Mantri Lithos Apartments, Mantri Lithos Apartments Manyata tech park, Mantri Lithos Apartments bangalore, Mantri Lithos Apartments prices, Mantri Lithos Apartments new launch, Mantri Lithos Apartments location, Mantri Lithos Apartments reviews, ft2acres, properties in bangalore, pre launch in bangalore, ft2acres bangalore, real estate agents bangalore" /><link href="css/master.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="css/gallery.css" media="screen" />
+
+<script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+</script>
+<script type="text/javascript">
+	var emailfilter=/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+	var letters=/^[a-zA-Z\s]+$/;
+	var numbers=/^[0-9]+$/;
+	var phoneEX=/^[0-9]+$/;
+	var addressEx=/^[a-zA-Z0-9\*\+\-\_\!\@\#\$\%\^\&\(\)\.\?\;\:\,\/\`\~\{\}\[\]\|\=\/\\\s*]+$/;
+	
+	function Validation(){
+	 
+	  var name=$('#name').val();
+	  var email_id = $('#email_id').val();
+	  var contact_no = $('#contact_no').val();
+	  
+
+	  if(name=="" || name==null){
+	   alert('Please enter your name');
+	   $('#name').focus();
+	   return false;
+	  }
+	  else if(!name.match(letters)){
+	   alert('Name field allows alphabets only');
+	   $('#name').focus();
+	   return false;
+	  }
+	 if(email_id=="" || email_id==null){
+	   alert('Please enter your email id');
+	   $('#qemail').focus();
+	   return false;
+	  }
+	   else if(!email_id.match(emailfilter)){
+	   alert("Invalid email id");
+	   $('#qemail').focus();
+	   return false;
+	  }
+	  if(contact_no=="" || contact_no==null){
+	   alert('Please enter your contact no.');
+	   $('#contact_no').focus();
+	   return false;
+	  }
+	  else if(!contact_no.match(numbers)){
+	   alert('Contact no. allows numbers only');
+	   $('#contact_no').val('');
+	   $('#contact_no').focus();
+	   return false;
+	  }
+	  
+     else{
+	  
+	     //var info="name="+name+"&contact_no="+contact_no+"&email_id="+email_id;
+		 var info = $("form").serialize();
+	 // alert(info);
+	    $.ajax({
+            type: "POST",
+            url: "mantri-lithos-email.php",
+            data: info,
+            success: function (msg) {
+			 //alert(msg);
+			  if(msg.match("ok")){
+				   $('#name').val('');
+				   $('#email_id').val('');
+					$('#contact_no').val('');
+					$('#hardcopyFrm').hide();
+					$('#thank').show();
+					
+					
+			  }
+			  else{
+			    $('.result').html(msg);
+			  }
+			}
+			});
+	  
+	  }
+	 
+	 
+	 }
+	
+	</script>
+</head>
+<body>
+<div class="main_container">
+  <div class="top_container">
+    <div class="logo"><img src="images/logo.jpg" title="Mantri Lithos" alt="Mantri Lithos" border="0" /></div>
+    <div style="width:230px; float:right; color:#677778; font-weight:bold; margin-top:17px; text-align:right; padding-right:20px;">for booking call us now @<br />
+      <span style="font-size:16px; color:#30393a;">+91 9972908205 / 9986870705</span><br />
+      OR write to us @ <a href="mailto:contact@ft2acres.com">contact@ft2acres.com</a></div>
+  </div>
+  <div class="cleardiv"></div>
+  <div class="banner">&nbsp;</div>
+  <div class="cleardiv"></div>
+  <div class="mainmenu">
+    <ul>
+      <li style="background:none;">&nbsp;</li>
+      <li><a href="index.html" title="Go To Home">Home</a></li>
+      <li><a href="floor-plan.html" title="Floor Plan">Floor Plan</a></li>
+      <li><a href="location-map.html" title="Location Map">Location Map</a></li>
+      <li><a href="site-plan.html" title="Site Plan" class="current">Site Plan</a></li>
+      <li><a href="price-list.html" title="Price List">Price List</a></li>
+    </ul>
+  </div>
+  <div class="cleardiv"></div>
+  
+  <div class="container">
+  	<div class="form-section">	
+    	<div style="background:url(images/current_page_bg.png) repeat-x; padding:10px; color:#000; font-weight:bold; font-size:13px;">Write to us if interested</div>
+        <div class="form_container">
+		<div class="form_row" id="thank">
+				Thank you, we will get back to you soon.
+			</div>
+		<form name="hardcopyFrm" id="hardcopyFrm" action="" method="post">
+			<div class="form_row">
+				<div class="form_row_left">Name</div>
+				<div class="form_row_right"><input type="text" name="name" id="name" maxlength="30" /></div>
+				<div class="cleardiv"></div>
+			</div>
+			
+			
+			
+			<div class="form_row">
+				<div class="form_row_left">Email</div>
+				<div class="form_row_right"><input type="text" name="email_id" id="email_id" maxlength="50" /></div>
+				<div class="cleardiv"></div>
+			</div>
+			
+			<div class="form_row">
+				<div class="form_row_left">Phone</div>
+				<div class="form_row_right"><input type="text" name="contact_no" id="contact_no" maxlength="15" /></div>
+				<div class="cleardiv"></div>
+			</div>
+			<div class="form_row">
+				<div class="form_row_left">&nbsp;</div>
+				<div class="form_row_right"><input class="sub_button" type="button" name="submit" id="submit" value="" onClick="return Validation();" ></div>
+				<div class="cleardiv"></div>
+			</div>
+			</form>
+		</div>
+    </div>
+    
+    <div class="rigth-content-section">
+    	<div style="background:url(images/current_page_bg.png) repeat-x; padding:10px; color:#000; font-weight:bold; font-size:13px;">Site Plan</div>
+        <div id="gallery">
+        	<ul>
+            	<li><a href="images/layout-plan.jpg" target="_blank"><img src="images/layout-plan-thumb.jpg" border="0" /></a></li>
+            </ul>
+        </div>
+        <div class="cleardiv"></div>
+    </div>
+  </div>
+  
+  <div class="cleardiv"></div>
+  
+  <div class="footer">Marketed by <a href="http://www.ft2acres.com/" target="_blank">ft2acres</a></div>
+</div>
+
+</body>
+</html>
